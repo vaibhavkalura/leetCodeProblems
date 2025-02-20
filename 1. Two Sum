@@ -1,20 +1,36 @@
-// bruteForce
-import java.util.*;
+// optimalSolution
+import java.util.HashMap;
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-
-        int[] b= new int[2];
-
-        int flag = 0;
-
+        HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
         for(int i=0; i<nums.length; i++){
-            for(int j=i+1; j<nums.length; j++){
-                if(target == nums[i]+nums[j]){
-                    b[0]=i;
-                    b[1]=j;  
-                }
+            int comp=target-nums[i];
+            if(map.containsKey(comp)){
+                return new int[]{map.get(comp),i};
             }
+            map.put(nums[i],i); // (element, index)
         }
-        return b;
+        return new int[]{};
     }
 }
+
+// bruteForce
+// import java.util.*;
+// class Solution {
+//     public int[] twoSum(int[] nums, int target) {
+
+//         int[] b= new int[2];
+
+//         int flag = 0;
+
+//         for(int i=0; i<nums.length; i++){
+//             for(int j=i+1; j<nums.length; j++){
+//                 if(target == nums[i]+nums[j]){
+//                     b[0]=i;
+//                     b[1]=j;  
+//                 }
+//             }
+//         }
+//         return b;
+//     }
+// }
