@@ -13,3 +13,17 @@ class Solution {
         return Arrays.stream(res).max().getAsInt();
     }
 }
+// optimized solution
+class Solution {
+    public int maximumWealth(int[][] accounts) {
+        int answer=0;;
+        for(int[] person : accounts){
+            int total=0;
+            for(int salary : person){
+                total=total+salary;
+            }
+            if(total>answer) answer=total;
+        }
+        return answer;
+    }
+}
